@@ -14,12 +14,18 @@ def randomizeNames(names):
 print(randomizeNames(class_names))
 print(class_names)
 
+def createPDF(names_list):
+    canvas = Canvas("randomized-class-list.pdf", pagesize=LETTER)
+    canvas.setFont("Times-Roman", 20)
+    canvas.drawString(inch, 10*inch, "Randomized Class List")
+    canvas.setFont("Times-Roman", 12)
+    #canvas.setFillColor(blue)
+    for i in range(len(names_list)):
+        canvas.drawString(1 * inch, (10 * inch-20)-(12 *i), names_list[i])
+    canvas.showPage()
+    canvas.save()
+    return None
 
-myclass = ["Bobby","Jimmy","John"]
-canvas = Canvas("font-colors.pdf", pagesize=LETTER)
-canvas.setFont("Times-Roman", 12)
-canvas.setFillColor(blue)
-for i in range(len(myclass)):
-    canvas.drawString(1 * inch, (10 * inch)-(10 *i), myclass[i])
-
-canvas.save()
+if __name__ == '__main__':
+   random_names = randomizeNames(class_names)
+   createPDF(random_names)
