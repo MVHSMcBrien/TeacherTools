@@ -1,5 +1,7 @@
 # This script will take a list of class names randomize it and create 
 # a pdf with the random names listed.
+# Things to do to make it more functional
+#  - have it accept a txt file with the names from Synergy report
 
 import random
 from reportlab.lib.colors import blue
